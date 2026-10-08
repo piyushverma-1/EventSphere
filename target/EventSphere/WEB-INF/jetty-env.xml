@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure_9_0.dtd">
+<Configure class="org.eclipse.jetty.webapp.WebAppContext">
+    <New id="dbUrlEntry" class="org.eclipse.jetty.plus.jndi.EnvEntry">
+        <Arg>dbUrl</Arg>
+        <Arg type="java.lang.String">jdbc:mysql://localhost:3306/eventsphere?useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true</Arg>
+    </New>
+    <New id="dbUserEntry" class="org.eclipse.jetty.plus.jndi.EnvEntry">
+        <Arg>dbUser</Arg>
+        <Arg type="java.lang.String">root</Arg>
+    </New>
+    <New id="dbPasswordEntry" class="org.eclipse.jetty.plus.jndi.EnvEntry">
+        <Arg>dbPassword</Arg>
+        <Arg type="java.lang.String">piyush</Arg>
+    </New>
+</Configure>

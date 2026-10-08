@@ -1,0 +1,4 @@
+com\eventsphere\dao\RegistrationTest.class
+com\eventsphere\dao\UserDAOTest.class
+com\eventsphere\dao\ModelTest.class
+com\eventsphere\util\PasswordUtilTest.class

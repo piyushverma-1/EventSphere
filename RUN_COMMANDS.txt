@@ -1,0 +1,48 @@
+===========================================
+EVENTSPHERE - RUN COMMANDS (POWERSHELL)
+===========================================
+
+1. CHECK PREREQUISITES:
+------------------------
+java -version
+mysql --version
+mvn -version
+
+2. NAVIGATE TO PROJECT:
+------------------------
+cd "C:\Users\piyus\OneDrive\Documents\vibe coding\javaprojects\EventSphere"
+
+3. SETUP DATABASE (password: piyush):
+--------------------------------------
+mysql -u root -ppiyush -e "CREATE DATABASE IF NOT EXISTS eventsphere;"
+mysql -u root -ppiyush eventsphere < src\main\resources\database_schema.sql
+
+4. BUILD AND RUN:
+------------------
+mvn clean compile
+mvn package
+mvn jetty:run
+
+5. ACCESS APPLICATION:
+-----------------------
+URL: http://localhost:8080/
+Login: http://localhost:8080/login
+
+6. DEFAULT CREDENTIALS:
+------------------------
+Admin:      admin@eventsphere.com / admin123
+Organizer:  organizer@eventsphere.com / organizer123
+Attendee:   attendee@eventsphere.com / attendee123
+
+7. ONE-LINER (RUN EVERYTHING):
+--------------------------------
+cd "C:\Users\piyus\OneDrive\Documents\vibe coding\javaprojects\EventSphere" && mysql -u root -ppiyush -e "CREATE DATABASE IF NOT EXISTS eventsphere;" && mysql -u root -ppiyush eventsphere < src\main\resources\database_schema.sql && mvn clean package jetty:run
+
+8. TROUBLESHOOTING:
+--------------------
+• Port 8080 in use: netstat -ano | findstr :8080
+• MySQL not running: Get-Service -Name MySQL80
+• XML error: Change & to &amp; in web.xml
+• Stop server: Ctrl + C
+
+===========================================
