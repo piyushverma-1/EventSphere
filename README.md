@@ -5,7 +5,6 @@ A comprehensive **Event Management System** built with Java Servlets, JDBC, MySQ
 [![Java](https://img.shields.io/badge/Java-11%2B-blue)](https://www.oracle.com/java/)
 [![Maven](https://img.shields.io/badge/Maven-3.6%2B-red)](https://maven.apache.org/)
 [![MySQL](https://img.shields.io/badge/MySQL-8.0%2B-orange)](https://www.mysql.com/)
-[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 ## 🚀 Quick Start Commands
 
