@@ -1,4 +1,4 @@
-﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -55,13 +55,8 @@
                         </c:if>
                         <div class="mt-1">
                             <small class="text-muted">
-                                <i class="bi bi-clock me-1"></i><fmt:formatDate value="${notif.createdAt}" pattern="MMM d, yyyy h:mm a"/>
+                                <i class="bi bi-clock me-1"></i><c:out value="${notif.formattedCreatedAt}"/>
                             </small>
-                            <c:if test="${notif.readAt != null}">
-                                | <small class="text-muted">
-                                    <i class="bi bi-eye me-1"></i>Read <fmt:formatDate value="${notif.readAt}" pattern="h:mm a"/>
-                                </small>
-                            </c:if>
                         </div>
                     </div>
                     <div class="ms-3">

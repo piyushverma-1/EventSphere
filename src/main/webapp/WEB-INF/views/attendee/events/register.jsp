@@ -1,4 +1,4 @@
-﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="pageTitle" value="Register for Event"/>
@@ -24,11 +24,11 @@
                         <dl class="row mb-0">
                             <dt class="col-sm-5">Date</dt>
                             <dd class="col-sm-7">
-                                <fmt:formatDate value="${event.eventDate}" pattern="MMM d, yyyy"/>
+                                <c:out value="${event.formattedEventDate}"/>
                             </dd>
                             <dt class="col-sm-5">Time</dt>
                             <dd class="col-sm-7">
-                                <fmt:formatDate value="${event.eventTime}" pattern="h:mm a"/>
+                                <c:out value="${event.formattedEventTime}"/>
                             </dd>
                             <dt class="col-sm-5">Venue</dt>
                             <dd class="col-sm-7"><c:out value="${event.venue}"/></dd>

@@ -14,8 +14,8 @@ cd "C:\Users\piyus\OneDrive\Documents\vibe coding\javaprojects\EventSphere"
 
 3. SETUP DATABASE (password: piyush):
 --------------------------------------
-mysql -u root -ppiyush -e "CREATE DATABASE IF NOT EXISTS eventsphere;"
-mysql -u root -ppiyush eventsphere < src\main\resources\database_schema.sql
+mysql -u root -yourpcname -e "CREATE DATABASE IF NOT EXISTS eventsphere;"
+mysql -u root -yourpcname eventsphere < src\main\resources\database_schema.sql
 
 4. BUILD AND RUN:
 ------------------

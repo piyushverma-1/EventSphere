@@ -65,4 +65,14 @@ public class User {
     public boolean isAdmin() { return role == Role.ADMIN; }
     public boolean isOrganizer() { return role == Role.ORGANIZER; }
     public boolean isAttendee() { return role == Role.ATTENDEE; }
+
+    public String getFormattedCreatedAt() {
+        if (createdAt == null) return "";
+        return createdAt.format(java.time.format.DateTimeFormatter.ofPattern("MMM d, yyyy 'at' h:mm a"));
+    }
+
+    public String getFormattedLastLogin() {
+        if (lastLogin == null) return "Never";
+        return lastLogin.format(java.time.format.DateTimeFormatter.ofPattern("MMM d, yyyy 'at' h:mm a"));
+    }
 }

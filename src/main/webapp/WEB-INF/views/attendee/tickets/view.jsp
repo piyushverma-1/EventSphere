@@ -1,4 +1,4 @@
-﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="pageTitle" value="Ticket View"/>
@@ -77,7 +77,7 @@
                             </span>
                         </dd>
                         <dt class="col-sm-4">Booking Date</dt>
-                        <dd class="col-sm-8"><fmt:formatDate value="${registration.createdAt}" pattern="MMM d, yyyy h:mm a"/></dd>
+                        <dd class="col-sm-8"><c:out value="${registration.formattedCreatedAt}"/></dd>
                         <dt class="col-sm-4">Ticket Status</dt>
                         <dd class="col-sm-8">
                             <span class="badge bg-${digitalTicket.isUsed ? 'secondary' : 'success'}">

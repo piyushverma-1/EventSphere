@@ -1,6 +1,7 @@
 package com.eventsphere.dao;
 
 import com.eventsphere.model.Registration;
+import com.eventsphere.util.DAOUtil;
 import com.eventsphere.util.DatabaseUtil;
 import jakarta.servlet.ServletContext;
 import java.math.BigDecimal;
@@ -38,19 +39,19 @@ public class RegistrationDAO {
         reg.setCreatedAt(rs.getTimestamp("created_at") != null ? rs.getTimestamp("created_at").toLocalDateTime() : null);
         reg.setUpdatedAt(rs.getTimestamp("updated_at") != null ? rs.getTimestamp("updated_at").toLocalDateTime() : null);
 
-        if (rs.findColumn("attendee_name") > 0) {
+        if (DAOUtil.hasColumn(rs, "attendee_name")) {
             reg.setAttendeeName(rs.getString("attendee_name"));
         }
-        if (rs.findColumn("attendee_email") > 0) {
+        if (DAOUtil.hasColumn(rs, "attendee_email")) {
             reg.setAttendeeEmail(rs.getString("attendee_email"));
         }
-        if (rs.findColumn("event_title") > 0) {
+        if (DAOUtil.hasColumn(rs, "event_title")) {
             reg.setEventTitle(rs.getString("event_title"));
         }
-        if (rs.findColumn("ticket_type_name") > 0) {
+        if (DAOUtil.hasColumn(rs, "ticket_type_name")) {
             reg.setTicketTypeName(rs.getString("ticket_type_name"));
         }
-        if (rs.findColumn("ticket_code") > 0) {
+        if (DAOUtil.hasColumn(rs, "ticket_code")) {
             reg.setTicketCode(rs.getString("ticket_code"));
         }
         return reg;

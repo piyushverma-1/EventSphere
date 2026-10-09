@@ -1,4 +1,4 @@
-﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="pageTitle" value="Home"/>
@@ -59,8 +59,7 @@
                         <div class="mb-2">
                             <small class="text-muted">
                                 <i class="bi bi-calendar me-1"></i>
-                                <fmt:formatDate value="${event.eventDate}" pattern="MMM d, yyyy"/>
-                                <c:if test="${event.eventTime != null}"> at <fmt:formatDate value="${event.eventTime}" pattern="h:mm a"/></c:if>
+                                <c:out value="${event.formattedEventDateTime}"/>
                             </small>
                         </div>
                         <div class="mb-2">

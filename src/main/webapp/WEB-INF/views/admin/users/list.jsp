@@ -1,4 +1,4 @@
-﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="pageTitle" value="User Management"/>
@@ -115,17 +115,8 @@
                                         ${user.isActive ? 'Active' : 'Inactive'}
                                     </span>
                                 </td>
-                                <td><fmt:formatDate value="${user.createdAt}" pattern="MMM d, yyyy"/></td>
-                                <td>
-                                    <c:choose>
-                                        <c:when test="${user.lastLogin != null}">
-                                            <fmt:formatDate value="${user.lastLogin}" pattern="MMM d, yyyy h:mm a"/>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <span class="text-muted">Never</span>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </td>
+                                <td><c:out value="${user.formattedCreatedAt}"/></td>
+                                <td><c:out value="${user.formattedLastLogin}"/></td>
                                 <td class="text-end">
                                     <div class="btn-group btn-group-sm">
                                         <a href="${pageContext.request.contextPath}/admin/users/${user.id}" class="btn btn-outline-secondary" title="View">

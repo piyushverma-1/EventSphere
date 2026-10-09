@@ -1,4 +1,4 @@
-﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -61,7 +61,7 @@
                                                 <i class="bi bi-people me-1"></i>Qty: ${reg.quantity}
                                             </p>
                                             <p class="card-text text-muted small">
-                                                <i class="bi bi-calendar me-1"></i><fmt:formatDate value="${reg.createdAt}" pattern="MMM d, yyyy"/>
+                                                <i class="bi bi-calendar me-1"></i><c:out value="${reg.formattedCreatedAt}"/>
                                                 | <i class="bi bi-qr-code me-1"></i>Ticket: <code><c:out value="${ticket.ticketCode}"/></code>
                                             </p>
                                         </div>
@@ -105,7 +105,7 @@
                                 <p class="card-text text-muted small">
                                     <i class="bi bi-person me-1"></i><c:out value="${reg.attendeeName}"/> |
                                     <i class="bi bi-tag me-1"></i><c:out value="${reg.ticketTypeName}"/> |
-                                    <i class="bi bi-calendar me-1"></i><fmt:formatDate value="${reg.createdAt}" pattern="MMM d, yyyy"/>
+                                    <i class="bi bi-calendar me-1"></i><c:out value="${reg.formattedCreatedAt}"/>
                                 </p>
                             </div>
                             <div class="col-md-4 text-md-end">
@@ -137,7 +137,7 @@
                                 <p class="card-text text-muted small">
                                     <i class="bi bi-person me-1"></i><c:out value="${reg.attendeeName}"/> |
                                     <i class="bi bi-tag me-1"></i><c:out value="${reg.ticketTypeName}"/> |
-                                    <i class="bi bi-calendar me-1"></i><fmt:formatDate value="${reg.createdAt}" pattern="MMM d, yyyy"/>
+                                    <i class="bi bi-calendar me-1"></i><c:out value="${reg.formattedCreatedAt}"/>
                                 </p>
                                 <p class="card-text text-danger small">
                                     <i class="bi bi-info-circle me-1"></i>Cancellation reason: <c:out value="${reg.cancellationReason}"/>
@@ -164,7 +164,7 @@
 <script>
 function cancelRegistration(regId) {
     if (confirm('Are you sure you want to cancel this registration?')) {
-        window.location.href = '/attendee/tickets/' + regId + '/cancel';
+        window.location.href = '${pageContext.request.contextPath}/attendee/tickets/' + regId + '/cancel';
     }
 }
 </script>

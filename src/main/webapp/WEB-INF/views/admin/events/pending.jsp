@@ -1,4 +1,4 @@
-﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="../../header.jsp" %>
@@ -36,7 +36,7 @@
                             </div>
                             <div class="col-6">
                                 <small class="text-muted">Date:</small>
-                                <div><strong><fmt:formatDate value="${event.eventDate}" pattern="MMM d, yyyy"/> at <fmt:formatDate value="${event.eventTime}" pattern="h:mm a"/></strong></div>
+                                <div><strong><c:out value="${event.formattedEventDateTime}"/></strong></div>
                             </div>
                         </div>
                         <div class="row mb-2">
@@ -51,7 +51,7 @@
                         </div>
                         <div class="mb-3">
                             <small class="text-muted">Submitted:</small>
-                            <div><fmt:formatDate value="${event.createdAt}" pattern="MMM d, yyyy h:mm a"/></div>
+                            <div><c:out value="${event.formattedCreatedAt}"/></div>
                         </div>
                     </div>
                     <div class="card-footer">

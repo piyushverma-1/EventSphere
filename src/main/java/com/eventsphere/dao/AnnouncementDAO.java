@@ -1,6 +1,7 @@
 package com.eventsphere.dao;
 
 import com.eventsphere.model.Announcement;
+import com.eventsphere.util.DAOUtil;
 import com.eventsphere.util.DatabaseUtil;
 import jakarta.servlet.ServletContext;
 import java.sql.*;
@@ -31,10 +32,10 @@ public class AnnouncementDAO {
         ann.setSentAt(rs.getTimestamp("sent_at") != null ? rs.getTimestamp("sent_at").toLocalDateTime() : null);
         ann.setCreatedAt(rs.getTimestamp("created_at") != null ? rs.getTimestamp("created_at").toLocalDateTime() : null);
 
-        if (rs.findColumn("event_title") > 0) {
+        if (DAOUtil.hasColumn(rs, "event_title")) {
             ann.setEventTitle(rs.getString("event_title"));
         }
-        if (rs.findColumn("organizer_name") > 0) {
+        if (DAOUtil.hasColumn(rs, "organizer_name")) {
             ann.setOrganizerName(rs.getString("organizer_name"));
         }
         return ann;

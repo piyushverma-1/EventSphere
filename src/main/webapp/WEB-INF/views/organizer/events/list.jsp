@@ -1,4 +1,4 @@
-﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -42,8 +42,8 @@
                                     <br><small class="text-muted"><c:out value="${fn:substring(event.description, 0, 50)}"/>...</small>
                                 </td>
                                 <td>
-                                    <fmt:formatDate value="${event.eventDate}" pattern="MMM d, yyyy"/>
-                                    <br><small><fmt:formatDate value="${event.eventTime}" pattern="h:mm a"/></small>
+                                    <c:out value="${event.formattedEventDate}"/>
+                                    <br><small><c:out value="${event.formattedEventTime}"/></small>
                                 </td>
                                 <td><c:out value="${event.venue}"/></td>
                                 <td>

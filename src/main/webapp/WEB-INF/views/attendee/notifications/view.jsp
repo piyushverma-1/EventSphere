@@ -1,4 +1,4 @@
-﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="pageTitle" value="Notification"/>
@@ -37,7 +37,7 @@
                     
                     <div class="d-flex justify-content-between align-items-center">
                         <small class="text-muted">
-                            <i class="bi bi-clock me-1"></i><fmt:formatDate value="${notification.createdAt}" pattern="MMM d, yyyy h:mm a"/>
+                            <i class="bi bi-clock me-1"></i><c:out value="${notification.formattedCreatedAt}"/>
                         </small>
                         <c:if test="${not notification.isRead}">
                             <form method="post" action="${pageContext.request.contextPath}/attendee/notifications/${notification.id}/read">

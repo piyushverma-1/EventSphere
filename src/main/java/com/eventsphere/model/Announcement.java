@@ -47,4 +47,14 @@ public class Announcement {
 
     public String getOrganizerName() { return organizerName; }
     public void setOrganizerName(String organizerName) { this.organizerName = organizerName; }
+
+    public String getFormattedCreatedAt() {
+        if (createdAt == null) return "";
+        return createdAt.format(java.time.format.DateTimeFormatter.ofPattern("MMM d, yyyy 'at' h:mm a"));
+    }
+
+    public String getFormattedSentAt() {
+        if (sentAt == null) return "";
+        return sentAt.format(java.time.format.DateTimeFormatter.ofPattern("MMM d, yyyy 'at' h:mm a"));
+    }
 }

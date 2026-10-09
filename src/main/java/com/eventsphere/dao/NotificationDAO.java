@@ -1,6 +1,7 @@
 package com.eventsphere.dao;
 
 import com.eventsphere.model.Notification;
+import com.eventsphere.util.DAOUtil;
 import com.eventsphere.util.DatabaseUtil;
 import jakarta.servlet.ServletContext;
 import java.sql.*;
@@ -29,13 +30,13 @@ public class NotificationDAO {
         notif.setReadAt(rs.getTimestamp("read_at") != null ? rs.getTimestamp("read_at").toLocalDateTime() : null);
         notif.setCreatedAt(rs.getTimestamp("created_at") != null ? rs.getTimestamp("created_at").toLocalDateTime() : null);
 
-        if (rs.findColumn("title") > 0) {
+        if (DAOUtil.hasColumn(rs, "title")) {
             notif.setTitle(rs.getString("title"));
         }
-        if (rs.findColumn("message") > 0) {
+        if (DAOUtil.hasColumn(rs, "message")) {
             notif.setMessage(rs.getString("message"));
         }
-        if (rs.findColumn("event_title") > 0) {
+        if (DAOUtil.hasColumn(rs, "event_title")) {
             notif.setEventTitle(rs.getString("event_title"));
         }
         return notif;

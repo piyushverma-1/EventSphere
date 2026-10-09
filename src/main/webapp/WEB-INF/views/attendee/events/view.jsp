@@ -1,4 +1,4 @@
-﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="pageTitle" value="Event Details"/>
@@ -32,8 +32,7 @@
                 <dl class="row">
                     <dt class="col-sm-3">Date & Time</dt>
                     <dd class="col-sm-9">
-                        <fmt:formatDate value="${event.eventDate}" pattern="EEEE, MMMM d, yyyy"/>
-                        at <fmt:formatDate value="${event.eventTime}" pattern="h:mm a"/>
+                        <c:out value="${event.formattedEventDateTime}"/>
                     </dd>
                     <dt class="col-sm-3">Venue</dt>
                     <dd class="col-sm-9"><c:out value="${event.venue}"/></dd>

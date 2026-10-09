@@ -1,4 +1,4 @@
-﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="pageTitle" value="Announcements"/>
@@ -44,7 +44,7 @@
                                 ${ann.isSent ? 'Sent' : 'Draft'}
                             </span>
                         </td>
-                        <td><fmt:formatDate value="${ann.createdAt}" pattern="MMM d, yyyy"/></td>
+                        <td><c:out value="${ann.formattedCreatedAt}"/></td>
                         <td class="text-end">
                             <a href="${pageContext.request.contextPath}/organizer/announcements/${ann.id}" class="btn btn-sm btn-outline-secondary" title="View">
                                 <i class="bi bi-eye"></i>

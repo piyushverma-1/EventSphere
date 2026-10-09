@@ -1,6 +1,7 @@
 package com.eventsphere.dao;
 
 import com.eventsphere.model.TicketType;
+import com.eventsphere.util.DAOUtil;
 import com.eventsphere.util.DatabaseUtil;
 import jakarta.servlet.ServletContext;
 import java.math.BigDecimal;
@@ -35,7 +36,7 @@ public class TicketTypeDAO {
         tt.setCreatedAt(rs.getTimestamp("created_at") != null ? rs.getTimestamp("created_at").toLocalDateTime() : null);
         tt.setUpdatedAt(rs.getTimestamp("updated_at") != null ? rs.getTimestamp("updated_at").toLocalDateTime() : null);
 
-        if (rs.findColumn("event_title") > 0) {
+        if (DAOUtil.hasColumn(rs, "event_title")) {
             tt.setEventTitle(rs.getString("event_title"));
         }
         return tt;

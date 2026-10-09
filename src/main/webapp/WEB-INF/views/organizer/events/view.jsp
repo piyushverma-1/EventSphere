@@ -1,4 +1,4 @@
-﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="pageTitle" value="Event Details"/>
@@ -46,8 +46,7 @@
                 <dl class="row mb-0">
                     <dt class="col-sm-3">Date & Time</dt>
                     <dd class="col-sm-9">
-                        <fmt:formatDate value="${event.eventDate}" pattern="EEEE, MMMM d, yyyy"/>
-                        at <fmt:formatDate value="${event.eventTime}" pattern="h:mm a"/>
+                        <c:out value="${event.formattedEventDateTime}"/>
                     </dd>
                     <dt class="col-sm-3">Venue</dt>
                     <dd class="col-sm-9"><c:out value="${event.venue}"/></dd>
@@ -65,10 +64,10 @@
                     </c:if>
                     <c:if test="${event.approvedAt != null}">
                         <dt class="col-sm-3">Approved</dt>
-                        <dd class="col-sm-9"><fmt:formatDate value="${event.approvedAt}" pattern="MMM d, yyyy h:mm a"/></dd>
+                        <dd class="col-sm-9"><c:out value="${event.formattedApprovedAt}"/></dd>
                     </c:if>
                     <dt class="col-sm-3">Created</dt>
-                    <dd class="col-sm-9"><fmt:formatDate value="${event.createdAt}" pattern="MMM d, yyyy h:mm a"/></dd>
+                    <dd class="col-sm-9"><c:out value="${event.formattedCreatedAt}"/></dd>
                 </dl>
             </div>
         </div>
@@ -177,9 +176,9 @@
                             </div>
                             <p class="text-muted small mb-1"><c:out value="${ann.message}"/></p>
                             <small class="text-muted">
-                                <i class="bi bi-clock me-1"></i><fmt:formatDate value="${ann.createdAt}" pattern="MMM d, yyyy h:mm a"/>
+                                <i class="bi bi-clock me-1"></i><c:out value="${ann.formattedCreatedAt}"/>
                                 <c:if test="${ann.sentAt != null}">
-                                    | <i class="bi bi-send me-1"></i>Sent <fmt:formatDate value="${ann.sentAt}" pattern="MMM d, yyyy h:mm a"/>
+                                    | <i class="bi bi-send me-1"></i>Sent <c:out value="${ann.formattedSentAt}"/>
                                 </c:if>
                             </small>
                         </div>

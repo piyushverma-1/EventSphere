@@ -25,6 +25,16 @@ public class Event {
     private String organizerName;
     private Integer availableTickets;
     private Integer soldTickets;
+    private String category = "Technology";
+
+    public String getCategory() { return category != null ? category : "Technology"; }
+    public void setCategory(String category) { this.category = category; }
+
+    public String getStartTime() { return getFormattedEventTime(); }
+    public String getEndTime() {
+        if (eventTime == null) return "";
+        return eventTime.plusHours(2).format(DateTimeFormatter.ofPattern("h:mm a"));
+    }
 
     public enum Status {
         DRAFT, PENDING_APPROVAL, APPROVED, REJECTED, CANCELLED

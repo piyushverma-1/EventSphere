@@ -1,7 +1,6 @@
 com\eventsphere\servlet\AdminUserServlet.class
 com\eventsphere\servlet\OrganizerEventServlet.class
 com\eventsphere\model\Registration$Status.class
-com\eventsphere\util\DatabaseUtil$SimpleDataSource.class
 com\eventsphere\servlet\OrganizerAnnouncementServlet.class
 com\eventsphere\model\User$Role.class
 com\eventsphere\servlet\TicketValidationServlet.class
@@ -26,6 +25,7 @@ com\eventsphere\servlet\AttendeeEventServlet.class
 com\eventsphere\util\PasswordUtil.class
 com\eventsphere\servlet\RegisterServlet.class
 com\eventsphere\model\Registration$PaymentStatus.class
+com\eventsphere\util\DAOUtil.class
 com\eventsphere\servlet\HomeServlet$1.class
 com\eventsphere\model\Registration.class
 com\eventsphere\model\TicketType.class

@@ -1,4 +1,4 @@
-﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="pageTitle" value="Announcement Details"/>
@@ -33,10 +33,10 @@
                         <dt class="col-sm-3">Organizer</dt>
                         <dd class="col-sm-9"><c:out value="${announcement.organizerName}"/></dd>
                         <dt class="col-sm-3">Created</dt>
-                        <dd class="col-sm-9"><fmt:formatDate value="${announcement.createdAt}" pattern="MMM d, yyyy h:mm a"/></dd>
+                        <dd class="col-sm-9"><c:out value="${announcement.formattedCreatedAt}"/></dd>
                         <c:if test="${announcement.sentAt != null}">
                             <dt class="col-sm-3">Sent At</dt>
-                            <dd class="col-sm-9"><fmt:formatDate value="${announcement.sentAt}" pattern="MMM d, yyyy h:mm a"/></dd>
+                            <dd class="col-sm-9"><c:out value="${announcement.formattedSentAt}"/></dd>
                         </c:if>
                     </dl>
                 </div>

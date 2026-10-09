@@ -1,6 +1,7 @@
 package com.eventsphere.dao;
 
 import com.eventsphere.model.Event;
+import com.eventsphere.util.DAOUtil;
 import com.eventsphere.util.DatabaseUtil;
 import jakarta.servlet.ServletContext;
 import java.sql.*;
@@ -43,14 +44,17 @@ public class EventDAO {
         event.setUpdatedAt(rs.getTimestamp("updated_at") != null ? rs.getTimestamp("updated_at").toLocalDateTime() : null);
 
         // Transient fields
-        if (rs.findColumn("organizer_name") > 0) {
+        if (DAOUtil.hasColumn(rs, "organizer_name")) {
             event.setOrganizerName(rs.getString("organizer_name"));
         }
-        if (rs.findColumn("available_tickets") > 0) {
+        if (DAOUtil.hasColumn(rs, "available_tickets")) {
             event.setAvailableTickets(rs.getInt("available_tickets"));
         }
-        if (rs.findColumn("sold_tickets") > 0) {
+        if (DAOUtil.hasColumn(rs, "sold_tickets")) {
             event.setSoldTickets(rs.getInt("sold_tickets"));
+        }
+        if (DAOUtil.hasColumn(rs, "category")) {
+            event.setCategory(rs.getString("category"));
         }
         return event;
     }
